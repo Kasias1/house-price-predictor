@@ -2,21 +2,126 @@
 
 ## Project Overview
 
-This project predicts house sale prices using the Ames Housing dataset. The goal is to build a machine learning model while following a complete data science workflow.
+This project explores the Ames Housing dataset and develops a machine learning model for predicting house sale prices.
 
-## Progress
+The project follows a complete machine learning workflow:
+
+- Data loading and inspection
+- Missing-value analysis
+- Data cleaning
+- Exploratory Data Analysis
+- Feature engineering
+- Model training
+- Model evaluation
+
+## Dataset
+
+The dataset contains 1,460 houses and 81 columns describing features such as:
+
+- Living area
+- Overall construction quality
+- Garage capacity
+- Basement size
+- Neighborhood
+- Year built
+- Sale price
+
+The target variable is `SalePrice`.
+
+## Project Structure
+
+House-price-predictor/
+│
+├── Data/
+│ ├── raw/
+│ └── processed/
+├── images/
+├── House_Price_EDA.ipynb
+├── README.md
+├── requirements.txt
+└── .gitignore
+
+## Data Cleaning
+
+Missing values were handled according to their meaning rather than applying one method to every column.
+
+Examples:
+
+- Categorical values representing the absence of a feature were filled with `"None"`.
+- `GarageYrBlt`was filled with 0 for houses without a garage, allowing the model to distinguish between houses with and without garage structures.
+- `MasVnrArea` was filled with 0 for houses without masonry veneer, since a missing value represented the absence of the feature rather than missing information.
+- `LotFrontage` was imputed using the median LotFrontage value within each neighborhood.This approach preserves neighborhood-specific characteristics and reduces the influence of extreme values compared to using the overall mean.
+- The single missing `Electrical` value was filled using the mode.
+
+## Exploratory Data Analysis
+
+### Sale Price Distribution
+
+`SalePrice` is positively skewed. Most houses are concentrated in the lower and middle price ranges, while a smaller number of expensive houses create a long right tail.
+
+![Sale price distribution](images/saleprice_distribution.png)
+
+### GrLivArea and SalePrice
+
+There is a clear positive relationship between above-ground living area and sale price. Larger houses generally sell for more, although a few outliers are present.
+
+![GrLivArea versus SalePrice](images/grlivarea_vs_saleprice.png)
+
+### Overall Quality and SalePrice
+
+`OverallQual` has the strongest positive correlation with `SalePrice`. Houses with higher overall quality ratings generally sell for higher prices.
+
+![Overall quality versus SalePrice](images/overallqual_vs_saleprice.png)
+
+### Sale Price Outliers
+
+The box plot shows several high-priced outliers. These observations were not removed automatically because they may represent genuine luxury properties.
+
+![SalePrice boxplot](images/saleprice_boxplot.png)
+
+### Neighborhood Differences
+
+Average sale prices vary considerably across neighborhoods. `NoRidge` has the highest average sale price, while `MeadowV` has the lowest.
+
+![Average sale price by neighborhood](images/neighborhood_prices.png)
+
+## Key Findings
+
+- `OverallQual` has the strongest positive correlation with `SalePrice`.
+- Larger above-ground living areas are generally associated with higher prices.
+- Garage capacity, basement size, and first-floor area are also important numerical features.
+- Newer and recently remodeled houses tend to sell for more.
+- Neighborhood appears to be an important categorical predictor.
+- `SalePrice` contains several valid high-value outliers.
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Jupyter Notebook
+
+## Project Progress
 
 - [x] Data loading
 - [x] Data cleaning
-- [x] Missing value handling
-- [x] Exploratory Data Analysis (EDA)
-- [ ] Feature Engineering
-- [ ] Model Training
-- [ ] Model Evaluation
+- [x] Missing-value handling
+- [x] Exploratory Data Analysis
+- [ ] Feature engineering
+- [ ] Model training
+- [ ] Model evaluation
+- [ ] Final model comparison
 
-## Exploratory Data Analysis Highlights
+## Next Steps
 
-- Identified `OverallQual` as the feature with the strongest positive correlation with `SalePrice` (0.791).
-- Found that `SalePrice` is right-skewed with several high-price outliers.
-- Observed that larger houses generally sell for higher prices.
-- Compared average sale prices across neighborhoods and found substantial differences.
+The next stage is to prepare the dataset for machine learning by:
+
+- Separating the target from the input features
+- Encoding categorical variables
+- Transforming skewed numerical variables where appropriate
+- Splitting the dataset into training and validation sets
+- Training baseline regression models
+- Comparing model performance
