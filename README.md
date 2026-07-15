@@ -10,9 +10,11 @@ The project follows a complete machine learning workflow:
 - Missing-value analysis
 - Data cleaning
 - Exploratory Data Analysis
-- Feature engineering
-- Model training
-- Model evaluation
+- Feature Engineering
+- One-Hot Encoding
+- Train/Test Split
+- Linear Regression
+- Model Evaluation
 
 ## Dataset
 
@@ -108,20 +110,33 @@ Average sale prices vary considerably across neighborhoods. `NoRidge` has the hi
 
 - [x] Data loading
 - [x] Data cleaning
-- [x] Missing-value handling
 - [x] Exploratory Data Analysis
-- [ ] Feature engineering
-- [ ] Model training
-- [ ] Model evaluation
-- [ ] Final model comparison
+- [x] Feature engineering
+- [x] Linear Regression model
+- [x] Model evaluation
+- [ ] Model comparison
+- [ ] Model optimization
+
+## Linear Regression Results
+
+The first machine learning model trained was a Linear Regression model.
+
+Performance on the test dataset:
+
+| Metric   | Value   |
+| -------- | ------- |
+| MAE      | $20,303 |
+| RMSE     | $33,259 |
+| R² Score | 0.856   |
+
+The model explains approximately **85.6%** of the variation in house sale prices and serves as a strong baseline for future models.
 
 ## Next Steps
 
 The next stage is to prepare the dataset for machine learning by:
 
-- Separating the target from the input features
-- Encoding categorical variables
-- Transforming skewed numerical variables where appropriate
-- Splitting the dataset into training and validation sets
-- Training baseline regression models
-- Comparing model performance
+- Train a Decision Tree Regressor.
+- Train a Random Forest Regressor.
+- Compare multiple regression models.
+- Tune model hyperparameters.
+- Select the best-performing model.
