@@ -106,17 +106,6 @@ Average sale prices vary considerably across neighborhoods. `NoRidge` has the hi
 - Scikit-learn
 - Jupyter Notebook
 
-## Project Progress
-
-- [x] Data loading
-- [x] Data cleaning
-- [x] Exploratory Data Analysis
-- [x] Feature engineering
-- [x] Linear Regression model
-- [x] Model evaluation
-- [ ] Model comparison
-- [ ] Model optimization
-
 ## Linear Regression Results
 
 The first machine learning model trained was a Linear Regression model.
@@ -131,12 +120,42 @@ Performance on the test dataset:
 
 The model explains approximately **85.6%** of the variation in house sale prices and serves as a strong baseline for future models.
 
-## Next Steps
+## Decision Tree Results
 
-The next stage is to prepare the dataset for machine learning by:
+The second machine learning model trained was a Linear Regression model.
 
-- Train a Decision Tree Regressor.
-- Train a Random Forest Regressor.
-- Compare multiple regression models.
-- Tune model hyperparameters.
-- Select the best-performing model.
+Performance on the test dataset:
+
+| Metric   | Value   |
+| -------- | ------- |
+| MAE      | $26,825 |
+| RMSE     | $42,275 |
+| R² Score | 0.767   |
+
+The decision tree model explains approximately **76.7%** of the variation in house sale prices and performs worse than the linear regression model
+
+## Random Forest Results
+
+The last machine learning model trained was a Linear Regression model.
+
+Performance on the test dataset:
+
+| Metric   | Value   |
+| -------- | ------- |
+| MAE      | $17,778 |
+| RMSE     | $29,210 |
+| R² Score | 0.889   |
+
+The random forest model explains approximately **88.9%** of the variation in house sale prices and performs better than the other models.
+
+## Model Comparison
+
+Three machine learning models were trained and evaluated on the Ames Housing dataset.
+
+| Model             |        MAE |       RMSE |  R² Score |
+| ----------------- | ---------: | ---------: | --------: |
+| Linear Regression |     20,303 |     33,259 |     0.856 |
+| Decision Tree     |     26,825 |     42,276 |     0.767 |
+| **Random Forest** | **17,779** | **29,210** | **0.889** |
+
+The Random Forest Regressor achieved the best overall performance and was selected as the final model.
