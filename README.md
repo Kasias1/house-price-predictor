@@ -124,7 +124,7 @@ The Random Forest Regressor achieved the best overall performance and was select
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Kasias1/house-price-predictor.git
 cd House-price-predictor
 ```
 
