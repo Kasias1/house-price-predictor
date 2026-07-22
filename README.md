@@ -6,15 +6,14 @@ This project explores the Ames Housing dataset and develops a machine learning m
 
 The project follows a complete machine learning workflow:
 
+The project follows a complete machine learning workflow:
+
 - Data loading and inspection
-- Missing-value analysis
 - Data cleaning
-- Exploratory Data Analysis
-- Feature Engineering
-- One-Hot Encoding
-- Train/Test Split
-- Linear Regression
-- Model Evaluation
+- Exploratory data analysis
+- Feature preparation
+- Model training
+- Model evaluation and comparison
 
 ## Dataset
 
@@ -32,6 +31,7 @@ The target variable is `SalePrice`.
 
 ## Project Structure
 
+```text
 House-price-predictor/
 │
 ├── Data/
@@ -42,6 +42,7 @@ House-price-predictor/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
+```
 
 ## Data Cleaning
 
@@ -50,7 +51,7 @@ Missing values were handled according to their meaning rather than applying one 
 Examples:
 
 - Categorical values representing the absence of a feature were filled with `"None"`.
-- `GarageYrBlt`was filled with 0 for houses without a garage, allowing the model to distinguish between houses with and without garage structures.
+- `GarageYrBlt` was filled with 0 for houses without a garage, allowing the model to distinguish between houses with and without garage structures.
 - `MasVnrArea` was filled with 0 for houses without masonry veneer, since a missing value represented the absence of the feature rather than missing information.
 - `LotFrontage` was imputed using the median LotFrontage value within each neighborhood.This approach preserves neighborhood-specific characteristics and reduces the influence of extreme values compared to using the overall mean.
 - The single missing `Electrical` value was filled using the mode.
@@ -106,51 +107,9 @@ Average sale prices vary considerably across neighborhoods. `NoRidge` has the hi
 - Scikit-learn
 - Jupyter Notebook
 
-## Linear Regression Results
-
-The first machine learning model trained was a Linear Regression model.
-
-Performance on the test dataset:
-
-| Metric   | Value   |
-| -------- | ------- |
-| MAE      | $20,303 |
-| RMSE     | $33,259 |
-| R² Score | 0.856   |
-
-The model explains approximately **85.6%** of the variation in house sale prices and serves as a strong baseline for future models.
-
-## Decision Tree Results
-
-The second machine learning model trained was a Linear Regression model.
-
-Performance on the test dataset:
-
-| Metric   | Value   |
-| -------- | ------- |
-| MAE      | $26,825 |
-| RMSE     | $42,275 |
-| R² Score | 0.767   |
-
-The decision tree model explains approximately **76.7%** of the variation in house sale prices and performs worse than the linear regression model
-
-## Random Forest Results
-
-The last machine learning model trained was a Linear Regression model.
-
-Performance on the test dataset:
-
-| Metric   | Value   |
-| -------- | ------- |
-| MAE      | $17,778 |
-| RMSE     | $29,210 |
-| R² Score | 0.889   |
-
-The random forest model explains approximately **88.9%** of the variation in house sale prices and performs better than the other models.
-
 ## Model Comparison
 
-Three machine learning models were trained and evaluated on the Ames Housing dataset.
+Three regression models were trained and evaluated using the same training and testing data.
 
 | Model             |        MAE |       RMSE |  R² Score |
 | ----------------- | ---------: | ---------: | --------: |
@@ -158,4 +117,46 @@ Three machine learning models were trained and evaluated on the Ames Housing dat
 | Decision Tree     |     26,825 |     42,276 |     0.767 |
 | **Random Forest** | **17,779** | **29,210** | **0.889** |
 
-The Random Forest Regressor achieved the best overall performance and was selected as the final model.
+The Random Forest Regressor achieved the best overall performance and was selected as the best-performing model.
+
+# How to Run
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd House-price-predictor
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv .venv
+```
+
+Activate the virtual environment:
+
+** Windows - Git Bash **
+
+```bash
+source .venv/Scripts/activate
+```
+
+** Windows - Powershell**
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+**macOS/Linux**
+
+```bash
+source .venv/bin/activate
+```
+
+Install the dependencies and open the notebook:
+
+```bash
+python -m pip install -r requirements.txt
+jupyter notebook
+```
