@@ -6,8 +6,6 @@ This project explores the Ames Housing dataset and develops a machine learning m
 
 The project follows a complete machine learning workflow:
 
-The project follows a complete machine learning workflow:
-
 - Data loading and inspection
 - Data cleaning
 - Exploratory data analysis
@@ -17,7 +15,7 @@ The project follows a complete machine learning workflow:
 
 ## Dataset
 
-The dataset contains 1,460 houses and 81 columns describing features such as:
+The dataset contains 1,460 residential properties and 81 features describing characteristics such as:
 
 - Living area
 - Overall construction quality
@@ -47,8 +45,6 @@ House-price-predictor/
 ## Data Cleaning
 
 Missing values were handled according to their meaning rather than applying one method to every column.
-
-Examples:
 
 - Categorical values representing the absence of a feature were filled with `"None"`.
 - `GarageYrBlt` was filled with 0 for houses without a garage, allowing the model to distinguish between houses with and without garage structures.
@@ -160,3 +156,7 @@ Install the dependencies and open the notebook:
 python -m pip install -r requirements.txt
 jupyter notebook
 ```
+
+## Conclusion
+
+This project demonstrates an end-to-end machine learning workflow, from data cleaning and exploratory analysis to model training and evaluation. Among the models tested, the Random Forest Regressor achieved the best performance and was selected as the final model.
